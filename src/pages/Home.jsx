@@ -2,7 +2,6 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
-import { useState } from "react";
 const Home = () => {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
@@ -39,9 +38,9 @@ const Home = () => {
       <div className="flex gap-5 flex-wrap mt-[50px]">
         {data.map((item) => (
           <div key={item.id} className="card">
-            {console.log(item)}
+            {/* {console.log(item)} */}
             <img
-              src={item.image[0]}
+              src={item.image}
               alt="image"
               onError={(e) => {
                 e.target.src = "default-image.jpg";

@@ -11,7 +11,6 @@ function AddTodo() {
   const [password, setPassword] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
   const navigate = useNavigate();
-
   const { mutate: updateMutate } = useMutation({
     mutationFn: (body) =>
       axios.put(`http://localhost:3000/todos/${body.id}`, body),
@@ -35,7 +34,8 @@ function AddTodo() {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setSelectedImage(file);
+      const imageUrl = URL.createObjectURL(file);
+      setSelectedImage(imageUrl);
     }
   };
 
